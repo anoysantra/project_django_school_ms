@@ -84,6 +84,7 @@
         {{ form.student_name }}
         
         <button type="submit">Search</button>
+
     </form>
 
     {% if request.method == 'POST' %}
@@ -95,6 +96,6 @@
     {% endif %}
 
 </div>
-
+<a href="{% url 'class_list' %}" class="button">Back to Home</a>
 </body>
 </html>

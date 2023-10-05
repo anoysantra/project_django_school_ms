@@ -9,6 +9,9 @@ class MarkingStudentsForm(forms.ModelForm):
         model = MarkingStudents
         fields = ['student_name', 'class_name', 'section_name', 'exam_type', 'marks_obtained']
 
+    def __str__(self):
+        return self.student_name
+
 """
 class StudentSearchMarksForm(forms.Form):
     class_name=forms.CharField(max_length=10, label='Enter Class to Search')

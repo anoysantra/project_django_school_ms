@@ -61,7 +61,7 @@
                 <td>{{ teacher.email }}</td>
                 <td>{{ teacher.contact_number }}</td>
                 <td>{{ teacher.address }}</td>
-                <td>{{name}}</td>
+                <td>{{ name }}</td>
                 <td>
                     <a href="{% url 'update_teacher' teacher.teacher_id %}" class="button">Update</a>
                     <a href="{% url 'delete_teacher' teacher.teacher_id %}" class="button" style="background-color: #FF0000;">Delete</a>
@@ -69,5 +69,6 @@
             </tr>
         {% endfor %}
     </table>
+    <a href="{% url 'class_list' %}" class="button">Back to Home</a>
 </body>
 </html>

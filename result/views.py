@@ -79,16 +79,32 @@ def marking_students_list(request):
 
 def stu_marks_update(request, student_name):
     marking_student = get_object_or_404(Student, name=student_name)
-    print(marking_student)
-    if request.method == 'POST':
-        form = MarkingStudentsForm(request.POST, instance=marking_student)
-        if form.is_valid():
-            form.save()
-            return redirect('marking_students_list')
-    else:
-        form = MarkingStudentsForm(instance=marking_student)
+    stu= get_object_or_404(MarkingStudents, student_name=marking_student)
+    val1=marking_student.name
+    val2=marking_student.class_name
+    val3=marking_student.section_name
+    print(marking_student.name,marking_student.class_name,marking_student.section_name,type(marking_student.name),type(marking_student.class_name),type(marking_student.section_name))
 
-    return render(request, 'marks_update.html', {'form': form, 'marking_student': marking_student})
+
+    if request.method == 'POST':
+        form = MarkingStudentsForm(request.POST,instance=stu)
+        if form.is_valid():
+            class_check=form.cleaned_data['class_name'].class_name
+            section_check=form.cleaned_data['section_name'].section_name
+            name_check=form.cleaned_data['student_name'].name
+            print(class_check,section_check,name_check,type(class_check),type(name_check))
+            print(val1,val2,val3,type(val2),type(val1),type(val3))
+
+            if class_check!=val2 or name_check!=val1 or section_check!=val3:
+                return HttpResponse("Try Updating with Same Value of the Candidate/Student")
+            
+            form.save()
+            
+            return redirect('marking_students_detail')
+    else:
+        form = MarkingStudentsForm(instance=stu)
+
+    return render(request, 'marks_update.html', {'form': form, 'marking_student': stu})
 
 
 def stu_marks_delete(request, student_name):
