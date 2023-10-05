@@ -39,6 +39,7 @@ def DeleteClasses(request,class_name):
     #class_obj = get_object_or_404(Classes, class_name=class_name) 
     class_obj = Classes.objects.filter(class_name=class_name)
     print(class_obj)
+    print(type(class_obj))
     
     if request.method == 'POST':
         class_obj.delete()
@@ -138,14 +139,7 @@ def SectionUpdate(request, class_name, section_name):
             # Cleaned data from the form
             class_name_check = form.cleaned_data['class_name']
             section_name_check = form.cleaned_data['section_name']
-            """
-            print("Section_check", section_name_check)
-            print(type(section_name_check))
-            print(section.section_name,type(section.section_name))
-            print(val)
-            # Check for data integrity and uniqueness
-            #or section_name_check == section.section_name
-            """
+         
             for e in c_section:
                 if section_name_check==e.section_name:
                     return HttpResponse("Duplicate Section Addition Not Allowed")

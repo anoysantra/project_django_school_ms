@@ -67,7 +67,18 @@
         <a href="{% url 'session_list' %}" class="btn">View Academic Session</a>
         <a href="{% url 'exam_add' %}" class="btn">Add Exam Details</a>
         <a href="{% url 'exam_list' %}" class="btn">View Exam Details</a>
-
+        <a href="{% url 'list_book' %}" class="btn">View Book Details</a>
+        <a href="{% url 'list_emp' %}" class="btn">Employee Details</a>
+        <a href="{% url 'list_student' %}" class="btn">Student List</a>
+        <a href="{% url 'list_department' %}" class="btn">Departments</a>
+        <a href="{% url 'list_route' %}" class="btn">Bus Routes</a>
+        <a href="{% url 'list_dormitory' %}" class="btn">Dormitories</a>
+        <a href="{% url 'list_payment' %}" class="btn">Payment Methods</a>
+        <a href="{% url 'list_teacher' %}" class="btn">Teachers List</a>
+        <a href="{% url 'search_student_for_marks' %}" class="btn">Marks Add</a>
+        <a href="{% url 'add_smslog' %}" class="btn">SMS</a>
+        <a href="{% url 'marking_students_detail' %}" class="btn">Marks List</a>
+    <br></br>
     <br></br>
     <h1>Class List</h1>
     </div>
@@ -82,9 +93,9 @@
             <td>
                 <a href="{% url 'class_update' class.class_name %}" class="btn btn-edit">Update</a>
                 <a href="{% url 'class_delete' class.class_name %}" class="btn btn-delete">Delete</a>
-                <a href="{% url 'section_add' class.class_name %}" class="btn btn-delete">Add Sections</a>
+                <a href="{% url 'section_add' class.class_name %}" class="btn">Add Sections</a>
                 <a href="{% url 'section_list' class.class_name %}" class="btn btn-delete">View Sections</a>
-                <a href="{% url 'subjects_add' class.class_name %}" class="btn btn-delete">Add Subjects</a>
+                <a href="{% url 'subjects_add' class.class_name %}" class="btn ">Add Subjects</a>
                 <a href="{% url 'subjects_list' class.class_name %}" class="btn btn-delete">View Subjects</a>
             </td>
         </tr>

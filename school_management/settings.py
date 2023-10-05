@@ -41,6 +41,16 @@ INSTALLED_APPS = [
     'subjects',
     'academic_session',
     'exam_type',
+    'library',
+    'employee_category',
+    'students',
+    'department',
+    'busroute',
+    'payment',
+    'dormitory',
+    'teacher',
+    'result',
+    'sms',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,99 @@
+<!-- smslog/templates/smslog/smslog_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of SMS Logs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .button-red {
+            background-color: #FF0000;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .button-red:hover {
+            background-color: #FF4444;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        a:hover {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h2>List of SMS Logs</h2>
+    <table>
+        <tr>
+            <th>SMS ID</th>
+            <th>Sender</th>
+            <th>Recipient</th>
+            <th>Message</th>
+            <th>Timestamp</th>
+            <th>Action</th>
+        </tr>
+        {% for sms_log in sms_logs %}
+            <tr>
+                <td>{{ sms_log.sms_id }}</td>
+                <td>{{ sms_log.sender }}</td>
+                <td>{{ sms_log.recipient }}</td>
+                <td>{{ sms_log.message }}</td>
+                <td>{{ sms_log.timestamp }}</td>
+                <td>
+                    <a href="{% url 'smslog_update' sms_id=sms_log.sms_id %}" class="button">Update</a>
+                    <a href="{% url 'smslog_delete' sms_id=sms_log.sms_id %}" class="button button-red">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'add_smslog' %}" class="button">Add an SMS Log</a>
+    <a href="{% url 'class_list' %}" class="button">Back to Home</a>
+</body>
+</html>

@@ -14,5 +14,8 @@ class Section(models.Model):
 
     def __str__(self):
         return self.section_name
+    
+
+
 
 
